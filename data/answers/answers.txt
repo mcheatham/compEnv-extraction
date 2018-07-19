@@ -1,0 +1,1400 @@
+-bio1
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5540
+cpu_frequency_value: 2.53
+cpu_frequency_unit: GHz
+
+-bio2
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 3612QM
+cpu_frequency_value: 2.12
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 6
+memory_size_unit: GB
+
+-bio3
+computer_manufacturer: HP
+computer_make: Pavilion
+computer_model: g4
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_frequency_value: 2.40
+cpu_frequency_unit: GHz
+memory_size_value: 8
+memory_size_unit: GB
+programming-language: C++
+
+-bio4
+cpu_frequency_value: 2.4
+cpu_frequency_unit: GHz
+memory_size_value: 1
+memory_size_unit: GB
+operating-system_kernel_name: Linux
+operating-system_distribution_name: CentOS
+operating-system_distribution_version: 5
+
+-bio5
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_frequency_value: 3.2
+cpu_frequency_unit: GHz
+programming-language: C++
+
+-bio6
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_model: 3470S
+cpu_frequency_value: 2.90
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 8.00
+memory_size_unit: GB
+operating-system_distribution_name: Scientific Linux
+operating-system_distribution_version: 6.3 Carbon
+software_name: JVM
+software_version: 1.6.0_45-b06
+
+-bio7
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_frequency_value: 3.33 
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 4
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7
+operating-system_distribution_version: 6.1.7600
+software_name: Java Virtual Machine
+software_version: 1.6.0_25
+operating-system_kernel_name: Linux 
+operating-system_distribution_name: Ubuntu 
+operating-system_distribution_version: 10.4 
+operating-system_distribution_name: Mac OS X 
+operating-system_distribution_version: 10.6.8 
+operating-system_distribution_version: 10.8.2 
+
+-bio8
+num-processors: 1 to 30 
+interconnection-network: InfiniBand FDR
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5-2660
+memory_type: RAM
+memory_size_value: 64
+memory_size_unit: GB
+software_name: OpenMPI
+software_version: 1.6.2
+
+-bio9
+cpu_make: Pentium 4 Xeon
+cpu_frequency_value: 2
+cpu_frequency_unit: GHz
+memory_size_value: 1,024
+memory_size_unit: MB
+cpu_manufacturer: Intel
+cpu_make: Itanium 2
+cpu_frequency_value: 1.5
+cpu_frequency_unit: GHz
+
+-bio10
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_frequency_value: 3.06
+cpu_frequency_unit: GHz
+cpu_num-cores: 6
+memory_type: RAM
+memory_size_value: 64
+memory_size_unit: GB
+operating-system_distribution_name: Mac OS X
+operating-system_distribution_version: 10.9 Mavericks
+software_name: Matlab
+software_version: R2013a
+
+-bio11
+cpu_make: Xeon
+cpu_model: E5540
+cpu_frequency_value: 2.53
+cpu_frequency_unit: GHz
+memory_size_value: 8.0
+memory_size_unit: GB
+
+-bio12
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5550
+cpu_frequency_value: 2.67
+cpu_frequency_unit: GHz
+memory_type: DDRIII-1333 RAM
+memory_size_value: 24
+memory_size_unit: GB
+operating-system_distribution_name: CentOS
+operating-system_distribution_version: v5.3
+software_name: gcc
+software_version: v4.1.2
+gpu_manufacturer: NVIDIA
+gpu_make: Tesla
+gpu_model: C2050
+gpu_kernel_version: v2.6.18
+software_name: nvcc
+software_version: v3.0
+cpu_manufacturer: Intel
+cpu_make: i7
+cpu_model: 920
+cpu_frequency_value: 2.67
+cpu_frequency_unit: GHz
+cpu_num-cores: 8
+memory_type: RAM
+memory_size_value: 6
+memory_size_unit: GB
+programming-language: C
+operating-system_kernel_name: Linux
+operating-system_kernel_version: 3.0.0-12-generic
+software_name: gcc
+software_version: v4.4.6
+software_name: nvcc
+software_version: v5.0
+software_name: ClustalW 
+software_version: v2.0.11 
+software_name: ClustalW 
+software_version: v1.0 
+software_name: MUSCLE
+software_version: v3.8.425
+software_name: G-MSA
+software_name: T-coffee
+software_version: v10.00.r1613
+gpu_manufacturer: NVIDIA
+gpu_make: Tesla
+gpu_model: K20c
+
+-bio13
+cpu_make: Core-Duo
+cpu_frequency_value: 2.2
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 3
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7
+software_name: Matlab
+software_version: 10.0
+software_name: Matlab PCNN, wavelet and neural network toolboxes
+
+-bio14
+num-processors: 8
+memory_type: RAM
+memory_size_value: 24
+memory_size_unit: GB
+
+-bio15
+cpu_make: HT Xeon
+cpu_frequency_value: 3.2
+cpu_frequency_unit: GHz
+cpu_num-cores: 16
+memory_type: RAM
+memory_size_value: 8
+memory_size_unit: GB
+programming-language: C/C++
+operating-system_kernel_name: Linux
+operating-system_distribution_name: Red Hat
+
+-bio16
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_frequency_value: 3.2
+cpu_frequency_unit: GHz
+programming-language: C++
+
+-bio17
+cpu_manufacturer: AMD
+cpu_make: Opteron
+cpu_model: 6128 HC
+cpu_frequency_value: 2000
+cpu_frequency_unit: MHz
+operating-system_kernel_name: Linux
+operating-system_kernel_version: 2.6.18
+
+-bio18
+cpu_num-cores: quad
+cpu_make: Xeon
+cpu_frequency_value: 2.66
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 16
+memory_size_unit: GB
+operating-system_distribution_name: Mac OS X
+software_name: Matlab parallel (CPU) computing toolbox
+
+-bio19
+software_name: Matlab
+software_name: CUDA
+software_name: externally compiled C++ library
+operating-system_distribution_name: Windows 7 64 bit
+cpu_manufacturer: Intel
+cpu_make: Xeon 2
+cpu_frequency_value: 2.4
+cpu_frequency_unit: GHz
+gpu_make: GeForce
+gpu_model: TITAN
+
+-bio20
+multicomputer_model: Barrine Linux High Performance Computing Cluster
+multicomputer_location: University of Queensland
+num-processors: 8
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: L5520
+cpu_frequency_value: 2.26
+cpu_frequency_unit: GHz
+cpu_num-cores: quad
+memory_size_value: 24
+memory_size_unit: GB
+memory_size_value: 1 
+memory_size_unit: GB
+memory_type: heap
+memory_size_value: 20
+memory_size_unit: GB
+software_name: Matlab
+software_version: R2011a
+software_name: MATLAB Compiler Runtime (MCR)
+software_version: 7.15 (Linux version)
+operating-system_kernel_name: Linux
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 860
+cpu_frequency_value: 2.93
+cpu_frequency_unit: GHz
+memory_size_value: 8
+memory_size_unit: GB
+software_name: Cplex Class API provided in IBM ILOG CPLEX Optimization Studio
+software_version: 12.3
+software_name: Gurobi Optimizer
+software_version: 5.0
+software_name: efmtool
+software_version: 7
+software_name: CellNetAnalyzer
+software_name: MATLAB
+software_version: 28
+
+-che1
+cpu_manufacturer: Intel
+cpu_make: Core 2
+cpu_model: T2450
+cpu_frequency_value: 2
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 1.5
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7 professional
+software_name: Matlab
+software_version: 2010a
+software_name: GRNN toolbox
+software_name: LSSVMlab toolbox
+software_version: 1.8
+
+-che2
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_model: 2400
+cpu_frequency_value: 3.1
+cpu_frequency_unit: GHz
+cpu_num-cores: 4
+memory_type: RAM
+memory_size_value: 8
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7 64-bit
+software_name: GAMS
+software_version: 23.7.3
+
+-che3
+computer_manufacturer: Dell
+computer_make: Optiplex
+computer_model: 790
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_model: 2400
+cpu_frequency_value: 3.10
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 8
+memory_size_unit: GB
+software_name: GAMS
+software_version: 23.751
+software_name: CPLEX
+software_version: 12 
+
+-che5
+num-processors: 2
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5420
+cpu_num-cores: 4
+
+-che6
+multicomputer_manufacturer: Cray
+multicomputer_make: CS-300 cluster
+num-nodes: 408
+num-processors: two
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5-2670
+cpu_num-cores: eight
+memory_size_value: 64
+memory_size_unit: GB
+multicomputer_manufacturer: IBM
+multicomputer_make: BlueGene
+multicomputer_model: Q Mira
+multicomputer_location: Argonne National Laboratory
+software_name: TiledArray (TA) library
+software_version: 0.5.0-alpha
+software_name: MADNESS 
+software_version: 8.26.15 
+software_name: Serial DGEMM from the Intel Math Kernel Library (MKL) 
+software_version: 11.2.3 
+software_name: Intel Parallel Studio XE 
+software_version: 15.3 
+software_name: Intel MPI 
+software_version: 5 
+
+-che7
+num-nodes: 18
+num-processors: two
+multicomputer_location: the National Institute of Chemistry (NIC) in Ljubljana, Slovenia
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: 5520
+cpu_frequency_value: 2.26
+cpu_frequency_unit: GHz
+cpu_num-cores: quad 
+operating-system_distribution_name: Ubuntu
+operating-system_distribution_version: 10.04 LTS
+num-nodes: 37
+num-processors: single
+multicomputer_location: the Jozˇef Stefan Institute (IJS) in Ljubljana, Slovenia
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: 5520
+cpu_frequency_value: 2.26
+cpu_frequency_unit: GHz
+cpu_num-cores: quad 
+operating-system_distribution_name: Ubuntu
+operating-system_distribution_version: 11.04 
+software_name: Mpich2
+software_version: 1.2.1
+
+-che8
+multicomputer_manufacturer: ALPS
+multicomputer_location:  National Center for High-performance Computing (NCHC) of Taiwan
+cpu_frequency_value: 2.2
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 2.67
+memory_size_unit: GB
+
+-che9
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_model: 2400
+cpu_frequency_value: 3.1
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 8.00
+memory_size_unit: GB
+operating-system_distribution_name: Windows 8 64-bit
+software_name: GAMS
+software_version: 24.4.170
+software_name: CPLEX
+software_version: 12.6
+software_name: SCIP
+software_version: 371
+software_name: BARON
+software_version: 14.72
+
+-che10
+cpu_manufacturer: Intel
+cpu_make: Pentium
+cpu_model: E5800
+cpu_frequency_value: 3.2
+cpu_frequency_unit: GHz
+operating-system_distribution_name: Windows
+operating-system_distribution_version: 7
+software_name: Matlab
+software_version: R2011b
+software_name: SPSS
+software_version: 17.0
+software_name: GA and BPANN toolboxes
+
+-che11
+cpu_manufacturer: AMD
+cpu_make: Opteron
+cpu_model: 6274
+operating-system_kernel_name: Linux
+software_name: MPI
+software_name: OpenMP
+
+-che12
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_frequency_value: 2.4
+cpu_frequency_unit: GHz
+cpu_make: Xquest
+
+-che13
+cpu_manufacturer: Intel
+cpu_make: i7
+cpu_model: 3770K
+gpu_manufacturer: AMD
+gpu_make: Radeon
+gpu_model: HD 7870
+programming-language: OpenCL
+
+-che14
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_frequency_value: 2.8
+cpu_frequency_unit: GHz
+
+-che15
+multicomputer_make: H20
+
+-che16
+cpu_make: Pentium
+cpu_frequency_value: 3.0
+cpu_frequency_unit: GHz
+memory_size_value: 1.0
+memory_size_unit: GB
+
+-che17
+num-nodes: single
+num-processors: two
+cpu_make: Xeon
+cpu_model: W5590
+cpu_frequency_value: 3.33
+cpu_frequency_unit: GHz
+
+-che18
+multicomputer_make: High Performance Computing Cluster
+multicomputer_location: Transtec AG, Tübingen
+num-nodes: 4
+num-processors: 16 
+cpu_manufacturer: AMD
+cpu_make: Opteron
+cpu_num-cores: dual 
+software_name: Matlab
+software_version: 2007b
+software_name: LibSVM toolbox
+software_name: Distributed computing toolbox 
+software_name: Genetic and Evolutionary Algorithm Toolbox
+software_name: PLS Toolbox
+num-processors: single
+
+-che19
+cpu_manufacturer: Intel
+cpu_make: i7
+cpu_model: 2630QM
+cpu_num-cores: quadcore
+software_name: Gaussian
+software_version: 03
+software_name: Multiwfn
+software_version: 2.3.2
+
+-che20
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5-2695
+
+-phy1
+computer_manufacturer: Dell
+computer_model: R720xd
+num-nodes: 20
+interconnection-network: InfiniBand FDR
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5-2670
+memory_type: DDR3
+memory_size_value: 384
+memory_size_unit: GB
+multicomputer_model: K computer
+multicomputer_location: RIKEN, Advanced Institute for Computational Science
+num-nodes: 82,944
+num-processors: 1
+interconnection-network: Tofu six-dimensional interconnection network
+cpu_make: SPARC64 VIIIfx
+cpu_frequency_value: 2.0
+cpu_frequency_unit: GHz
+cpu_num-cores: 8
+memory_type: L2 shared cache
+memory_size_value: 6
+memory_size_unit: MB
+memory_type: DDR3-SDRAM
+memory_size_value: 16
+memory_size_unit: GB
+software_name: OpenMPI
+software_version: 1.4.3
+multicomputer_model: Stampede
+multicomputer_location: Texas Advanced Computing Center, The University of Texas at Austin
+num-nodes: 256
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5-2680
+cpu_num-cores: dual
+software_name: OpenMP
+
+-phy2
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_frequency_value: 2.5
+cpu_frequency_unit: GHz
+cpu_num-cores: quad
+
+-phy3
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: X5460
+cpu_frequency_value: 3.16
+cpu_frequency_unit: GHz
+programming-language: C/C++
+software_name: Intel C/C++ compiler
+software_version: 12.0.4
+gpu_manufacturer: Nvidia
+gpu_make: GeForce
+gpu_model: GTX580
+
+-phy4
+cpu_manufacturer: Intel
+cpu_make: Core 2
+cpu_model: Q9550 
+cpu_frequency_value: 2.83
+cpu_frequency_unit: GHz
+cpu_num-cores: quad
+memory_type: DDR2 RAM
+memory_size_value: 4
+memory_size_unit: GB
+programming-language: C++
+operating-system_kernel_name: Linux
+operating-system_distribution_name: 64-bit OpenSuSe
+operating-system_distribution_version: 2.6.37
+software_name: GNU C++ compiler 
+software_version: 4.5.1 
+
+-phy5
+computer_manufacturer: Sunfire
+computer_model: X4600M2 
+cpu_manufacturer: AMD
+cpu_make: Opteron 
+cpu_frequency_value: 2.3
+cpu_frequency_unit: GHz
+
+-phy6
+multicomputer_make: Windows HPC cluster 
+multicomputer_location: Griffith University
+num-processors: 24
+
+-phy7
+cpu_make: i5
+cpu_frequency_value: 2.8
+cpu_frequency_unit: GHz
+memory_size_value: 4
+memory_size_unit: GB
+
+-phy8
+cpu_manufacturer: AMD
+cpu_make: Opteron 
+cpu_model: 6274 
+cpu_manufacturer: AMD
+cpu_make: Opteron 
+cpu_model: 6378 
+cpu_manufacturer: Intel
+cpu_make: Xeon 
+cpu_model: E5-2670 
+cpu_frequency_value: 2.6
+cpu_frequency_unit: GHz
+cpu_manufacturer: Intel
+cpu_make: Xeon Phi
+cpu_model: 5110P 
+gpu_manufacturer: NVidia
+gpu_make: Tesla
+gpu_model: K20X
+software_name: CUDA
+multicomputer_model: Beacon
+multicomputer_location: National Institute for Computational Sciences at the Oak Ridge National Laboratory
+
+-phy9
+cpu_manufacturer: Intel
+cpu_model: X9650 
+cpu_frequency_value: 3
+cpu_frequency_unit: GHz
+cpu_manufacturer: Intel
+cpu_model: X5570 
+cpu_frequency_value: 2.93
+cpu_frequency_unit: GHz
+cpu_manufacturer: Intel
+cpu_make: i7
+cpu_model: 940 
+cpu_frequency_value: 2.93
+cpu_frequency_unit: GHz
+cpu_manufacturer: Intel
+cpu_model: X5860 
+cpu_frequency_value: 3.33
+cpu_frequency_unit: GHz
+
+-phy10
+cpu_manufacturer: Intel
+cpu_make: Core 2 Duo
+cpu_model: T7700 
+cpu_frequency_value: 2.4
+cpu_frequency_unit: GHz
+cpu_num-cores: 2
+memory_type: RAM
+memory_size_value: 4
+memory_size_unit: GB
+cpu_manufacturer: Intel
+cpu_make: Xenon
+cpu_model: E7-8830 
+cpu_frequency_value: 2.13
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 64
+memory_size_unit: GB
+
+-phy11
+computer_manufacturer: Dell
+computer_make: PowerEdge
+computer_model: R610
+cpu_manufacturer: Intel
+cpu_make: Xeon 
+cpu_frequency_value: 2.67
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 48
+memory_size_unit: GB
+operating-system_distribution_name: 32-bit Microsoft Windows Server Standard
+
+-phy12
+num-processors: single
+cpu_manufacturer: Intel
+cpu_make: Xeon 
+cpu_frequency_value: 2.8
+cpu_frequency_unit: GHz
+
+-phy13
+cpu_manufacturer: Intel
+cpu_make: Core i7 
+cpu_frequency_value: 3.40
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 12
+memory_size_unit: GB
+software_name: Matlab
+
+-phy14
+cpu_manufacturer: Intel
+cpu_make: Core i7 
+cpu_model: 2600
+cpu_frequency_value: 3.40
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 4 
+memory_size_unit: GB
+software_name: Matlab
+
+-phy15
+computer_manufacturer: Dell
+computer_model: T5500
+num-processors: dual
+cpu_manufacturer: Intel
+cpu_model: E5520
+cpu_frequency_value: 2.27 
+cpu_frequency_unit: GHz
+cpu_num-cores: quad 
+memory_type: RAM
+memory_size_value: 24 
+memory_size_unit: GB
+operating-system_distribution_name: 64-bit Windows XP
+software_name: Eclipse TPS
+
+-phy16
+cpu_manufacturer: Intel
+cpu_make: Xeon Phi
+cpu_model: 5110 
+gpu_manufacturer: NVIDIA
+
+-phy17
+num-processors: two
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5640 
+cpu_frequency_value: 2.66 
+cpu_frequency_unit: GHz
+cpu_num-cores: four
+memory_type: Third level cache
+memory_size_value: 12 
+memory_size_unit: MB
+memory_type: RAM 
+memory_size_value: 45 
+memory_size_unit: GB
+
+-phy18
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 2600S 
+cpu_frequency_value: 2.80
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 8 
+memory_size_unit: GB
+gpu_manufacturer: NVIDIA
+gpu_make: Tesla
+gpu_model: C2070
+memory_type: GPU
+memory_size_value: 6
+memory_size_unit: GB
+
+-phy19
+computer_manufacturer: Lenovo
+computer_model: T410i
+cpu_manufacturer: Intel
+cpu_make: Core i3
+cpu_frequency_value: 2.13
+cpu_frequency_unit: GHz
+cpu_num-cores: dual
+
+-phy20
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 4800MQ
+cpu_frequency_value: 2.7
+cpu_frequency_unit: GHz
+programming-language: C++
+programming-language: Python
+
+-eng1
+num-processors: two
+cpu_manufacturer: Intel
+cpu_frequency_value: 2.93
+cpu_frequency_unit: GHz
+cpu_num-cores: 6
+memory_type: RAM
+memory_size_value: 64 
+memory_size_unit: GB
+operating-system_distribution_name: Macintosh OS
+software_name: Matlab
+gpu_manufacturer: ATI
+gpu_make: Radeon
+gpu_model: HD 5870
+
+-eng2
+cpu_manufacturer: Intel
+cpu_make: Core 2 Duo
+cpu_frequency_value: 2.4 
+cpu_frequency_unit: GHz
+cpu_num-cores: Duo
+memory_type: RAM
+memory_size_value: 2 
+memory_size_unit: GB
+software_name: Matlab
+software_version: 7.10.0.499 (R2010a)
+
+-eng3
+cpu_frequency_value: 2.53
+cpu_frequency_unit: GHz
+
+-eng4
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 3820 
+cpu_frequency_value: 3.6 
+cpu_frequency_unit: GHz
+programming-language: Fortran
+software_name: Intel Visual Fortran Compiler Integration for Microsoft Visual Studio 2010
+
+-eng5
+cpu_frequency_value: 2.00
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 1.92 
+memory_size_unit: GB
+operating-system_distribution_name: Windows XP
+software_name: Matlab
+software_version: R2009a
+
+-eng6
+cpu_manufacturer: AMD
+cpu_make: Turion
+cpu_frequency_value: 1.9 
+cpu_frequency_unit: GHz
+memory_type: DDRII RAM
+memory_size_value: 2.0
+memory_size_unit: GB
+
+-eng7
+cpu_make: Core 2 Duo
+software_name: Matlab
+software_version: 7.6
+
+-eng8
+cpu_frequency_value: 2.67 
+cpu_frequency_unit: GHz
+software_name: Matlab
+software_version: 7.1
+
+-eng9
+cpu_manufacturer: Intel
+cpu_num-cores: dual
+software_name: CLP
+software_version: 1.13.3
+
+-eng10
+cpu_manufacturer: AMD
+cpu_make: Athlon II
+cpu_model: 4640
+memory_size_value: 2 
+memory_size_unit: GB
+software_name: Matlab
+software_version: R2012a
+
+-eng11
+cpu_frequency_value: 2.0
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 512 
+memory_size_unit: MB
+memory_type: Hard drive
+memory_size_value: 160 
+memory_size_unit: GB
+operating-system_distribution_name: Windows XP
+operating-system_distribution_version: 3
+software_name: Matlab
+software_version: R2012b (8.0)
+
+-eng12
+cpu_manufacturer: Intel
+cpu_make: Core i7 
+cpu_frequency_value: 2668 
+cpu_frequency_unit: MHz
+memory_type: cache
+memory_size_value: 8192 
+memory_size_unit: MB
+memory_type: RAM
+memory_size_value: 8
+memory_size_unit: GB
+operating-system_kernel_name: Linux 
+operating-system_distribution_name: Ubuntu 
+operating-system_distribution_version: 11.1 
+software_name: g++
+software_version: 4.3.3 
+
+-eng13
+cpu_make: Pentium IV 
+cpu_frequency_value: 3.0
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 1 
+memory_size_unit: GB
+memory_type: Hard drive
+memory_size_value: 160 
+memory_size_unit: GB
+operating-system_distribution_name: Windows XP 
+software_name: Matlab 
+software_version: R2012a (7.14)
+
+-eng14
+cpu_manufacturer: Intel
+cpu_make: Core 2 Duo 
+cpu_model: T6400
+cpu_frequency_value: 2 
+cpu_frequency_unit: GHz
+memory_type: random access memory (RAM)
+memory_size_value: 2 
+memory_size_unit: GB
+programming-language: Matlab 
+
+-eng15
+cpu_model: T3100
+cpu_frequency_value: 1.9 
+cpu_frequency_unit: GHz
+memory_size_value: 2 
+memory_size_unit: GB
+software_name: Matlab 
+software_version: 7.1
+
+-eng16
+cpu_manufacturer: Intel
+cpu_make: Pentium
+cpu_frequency_value: 2 
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 1 
+memory_size_unit: GB
+software_name: Matlab 
+software_version: 7
+
+-eng17
+cpu_manufacturer: Intel
+cpu_frequency_value: 2 
+cpu_frequency_unit: GHz
+cpu_num-cores: 2
+memory_type: RAM
+memory_size_value: 2 
+memory_size_unit: GB
+
+-eng18
+cpu_manufacturer: Intel
+cpu_make: Core 2 Duo 
+cpu_frequency_value: 3.16 
+cpu_frequency_unit: GHz
+memory_type: L2 cache
+memory_size_value: 6144 
+memory_size_unit: KB
+memory_type: RAM 
+memory_size_value: 2 
+memory_size_unit: GB
+operating-system_kernel_name: Linux 
+operating-system_kernel_version: 3.2 
+operating-system_distribution_name: 64-bit Ubuntu 
+operating-system_distribution_version: 12.0.4 
+software_name: g++ 
+software_version: 4.6.4
+
+-eng19
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 950
+cpu_frequency_value: 3.0
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 12 
+memory_size_unit: GB
+operating-system_distribution_name: Windows
+operating-system_distribution_version: 7 64bits
+software_name: Matlab 
+software_version: 7.6.0.324 (R2008a)
+
+-eng20
+cpu_frequency_value: 3.2
+cpu_frequency_unit: GHz
+memory_type: RAM
+memory_size_value: 8
+memory_size_unit: GB
+
+-mth1
+computer_manufacturer: Dell
+computer_model: Ins14VD-586
+cpu_manufacturer: Intel
+cpu_make: Core i5
+cpu_model: 2450M
+cpu_frequency_value: 2.50 
+cpu_frequency_unit: GHz
+memory_size_value: 2.0
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7 (64 bit)
+software_name: Matlab 
+software_version: 2012(b)
+
+-mth2
+cpu_manufacturer: Intel
+cpu_make: Xeon 
+cpu_frequency_value: 2.67
+cpu_frequency_unit: GHz
+computer_manufacturer: Dell
+computer_make: Precision
+computer_model: T7400 
+num-processors: four 
+cpu_frequency_value: 3.0 
+cpu_frequency_unit: GHz
+computer_manufacturer: Corel 
+computer_model: 8400 
+cpu_frequency_value: 2.66 
+cpu_frequency_unit: GHz
+cpu_frequency_value: 3.2 
+cpu_frequency_unit: GHz
+cpu_num-cores: dual
+
+-mth3
+cpu_frequency_value: 500
+cpu_frequency_unit: MHz
+programming-language: Delphi
+operating-system_distribution_name: Windows 95 
+cpu_make: Pentium
+cpu_frequency_value: 400
+cpu_frequency_unit: MHz
+programming-language: C++ 
+cpu_frequency_value: 2.0 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 2.0 
+memory_size_unit: GB
+programming-language: C
+
+-mth4
+cpu_manufacturer: Intel
+cpu_make: Core 2 Duo
+cpu_model: T7300 
+cpu_frequency_value: 2.0
+cpu_frequency_unit: GHz
+
+-mth5
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_frequency_value: 2.66
+cpu_frequency_unit: GHz
+cpu_num-cores: Quad
+memory_type: RAM
+memory_size_value: 12 
+memory_size_unit: GB
+programming-language: gFortran
+software_name: CUDA
+gpu_manufacturer: NVIDIA
+gpu_make: Tesla
+gpu_model: T10
+gpu_num-cores: 240
+memory_type: GPU
+memory_size_value: 4 
+memory_size_unit: GB
+
+-mth6
+cpu_manufacturer: Intel
+cpu_make: Core i7
+cpu_model: 4770K 
+cpu_frequency_value: 4 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 8 
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7 x64 Ultimate 64
+software_name: Visual Studio 2010 .NET 
+software_version: 4
+
+-mth7
+cpu_make: Pentium IV 
+cpu_frequency_value: 2.4 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 1.0 
+memory_size_unit: GB
+software_name: Matlab 
+software_version: 7
+
+-mth8
+computer_manufacturer: Lenovo
+computer_model: T410
+cpu_make: i7
+cpu_model: 620m 
+memory_size_value: 3 
+memory_size_unit: gigabytes
+operating-system_distribution_name: 32-bit Windows
+operating-system_distribution_version: 7
+software_name: Matlab 
+software_version: 2010b
+
+-mth9
+cpu_manufacturer: Intel
+cpu_make: Xeon
+cpu_model: E5520 
+cpu_frequency_value: 2.27
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 8 
+memory_size_unit: GB
+memory_type: cache 
+memory_size_value: 8 
+memory_size_unit: MB
+
+-mth10
+computer_manufacturer: Apple
+computer_make: Mac
+computer_model: Pro 
+cpu_frequency_value: 3 
+cpu_frequency_unit: GHz
+
+-mth11
+computer_manufacturer: Dell
+computer_make: OptiPlex
+computer_model: 745
+num-processors: 1
+cpu_manufacturer: Intel
+cpu_make: Core 2
+cpu_model: 6600 
+cpu_frequency_value: 2.4 
+cpu_frequency_unit: GHz
+cpu_num-cores: 2
+memory_type: RAM 
+memory_size_value: 4 
+memory_size_unit: GB
+programming-language: C++
+computer_manufacturer: Dell
+computer_make: OptiPlex
+computer_model: 755
+num-processors: 1
+cpu_manufacturer: Intel
+cpu_make: Core 2
+cpu_model: E8500
+cpu_frequency_value: 3.16
+cpu_frequency_unit: GHz
+cpu_num-cores: 2
+memory_type: RAM 
+memory_size_value: 3
+memory_size_unit: GB
+programming-language: C#
+
+-mth12
+computer_manufacturer: Acer
+computer_model: 4750G 
+cpu_manufacturer: Intel
+cpu_make: Core i5 
+cpu_model: 2410M 
+cpu_frequency_value: 2.30
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 2
+memory_size_unit: GB
+programming-language: Visual C++
+
+-mth13
+cpu_manufacturer: Intel
+cpu_make: Pentium D
+cpu_frequency_value: 3.00
+cpu_frequency_unit: GHz
+memory_size_value: 1.00
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7
+software_name: Matlab 
+software_version: 7.1
+
+-mth14
+cpu_make: Pentium D
+cpu_frequency_value: 3.0
+cpu_frequency_unit: GHz
+memory_size_value: 4.0 
+memory_size_unit: GB
+software_name: Matlab 
+software_version: 7.9
+
+-mth15
+cpu_manufacturer: Intel
+cpu_make: Core i7 
+cpu_model: 870
+cpu_frequency_value: 2.93
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 8 
+memory_size_unit: G
+operating-system_distribution_name: Windows XP 
+software_name: Matlab 
+software_version: r2011b
+
+-mth16
+cpu_manufacturer: Intel
+cpu_make: Core i3
+cpu_model: 370
+cpu_frequency_value: 2.40 
+cpu_frequency_unit: GHz
+memory_size_value: 4 
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7
+software_name: Matlab 
+software_version: 7.6
+
+-mth17
+cpu_manufacturer: Intel
+cpu_make: Core i7 
+cpu_frequency_value: 3.4 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 16.0 
+memory_size_unit: GB
+operating-system_distribution_name: Windows 7 
+
+-mth18
+cpu_make: Pentium IV 
+cpu_frequency_value: 3.2 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 2 
+memory_size_unit: GB
+
+-mth19
+cpu_make: Celeron 
+cpu_model: T3100
+cpu_frequency_value: 1.9 
+cpu_frequency_unit: GHz
+cpu_num-cores: 2
+memory_type: RAM 
+memory_size_value: 2 
+memory_size_unit: GB
+software_name: Matlab 
+software_version: R2010a
+
+-mth20
+num-processors: 12
+cpu_manufacturer: Intel
+cpu_make: Xeon 
+cpu_frequency_value: 2.67 
+cpu_frequency_unit: GHz
+memory_type: RAM 
+memory_size_value: 36 
+memory_size_unit: GB
+
+-old1
+computer_manufacturer: Silicon Graphics
+computer_make: Indigo II
+computer_model: R4400
+
+-old2
+computer_manufacturer: Silicon Graphics
+computer_make: Origin200
+cpu_model: R10000
+cpu_frequency_value: 180
+cpu_frequency_unit: MHz
+operating-system_distribution_name: IRIX
+operating-system_distribution_version: 6.4
+
+-old3
+computer_manufacturer: Silicon Graphics
+cpu_make: MIPS
+cpu_model: 4400 
+cpu_frequency_value: 200
+cpu_frequency_unit: MHz
+memory_type: RAM
+memory_size_value: 128
+memory_size_unit: MB
+
+-old4
+computer_manufacturer: Compaq
+computer_model: ES40
+
+-old5
+computer_manufacturer: SGI
+computer_make: Power Challenge
+computer_model: L
+cpu_model: R10000
+cpu_frequency_value: 195
+cpu_frequency_unit: MHz
+software_name: CHARMM
+software_version: 19
+software_name: CHARMM
+software_version: 23
+
+-old6
+multicomputer_make: Beowulf computer cluster
+num-processors: 34
+cpu_make: Athlon
+cpu_frequency_value: 1.2 
+cpu_frequency_unit: GHz
+
+-old7
+num-processors: single
+cpu_manufacturer: IBM
+cpu_make: RS6000
+cpu_model: 590
+operating-system_kernel_name: LINUX
+num-nodes: 512
+multicomputer_manufacturer: IBM
+multicomputer_make: SP
+num-nodes: 512
+multicomputer_location: EMSL's MSCF
+multicomputer_manufacturer: CRAY
+multicomputer_model: T3E-900
+num-nodes: 512
+multicomputer_location: National Energy Research Scientific Computing Center
+
+-old8
+cpu_make: Athlon
+cpu_frequency_value: 700
+cpu_frequency_unit: MHz
+
+-old9
+cpu_manufacturer: Zilog
+cpu_make: Z80
+cpu_manufacturer: National Semiconductor
+cpu_make: NSC800
+
+-old10
+computer_manufacturer: DEC
+computer_make: 3000
+computer_model: 700
+cpu_make: Alpha
+cpu_frequency_value: 225
+cpu_frequency_unit: MHz
+
+-old11
+software_name: rsync
+software_version: 0.5
+computer_make: SPARC
+computer_model: 10
+cpu_frequency_value: 50
+cpu_frequency_unit: MHz
+operating-system_distribution_name: SunOS
+software_name: rsh
+software_name: GNU diff
+
+-old12
+computer_manufacturer: IBM
+computer_make: RS/6000
+operating-system_distribution_name: AIX
+operating-system_distribution_version: 4
+cpu_frequency_value: 66
+cpu_frequency_unit: MHz
+memory_size_value: 128
+memory_size_unit: MByte
+
+-old13
+cpu_frequency_value: 500
+cpu_frequency_unit: MHz
+operating-system_kernel_name: Linux
+
+-old14
+software_name: qhull
+software_version: 2.2
+computer_manufacturer: Silicon Graphics
+computer_model: R4000
+cpu_frequency_value: 100
+cpu_frequency_unit: MHz
+computer_manufacturer: Sun
+computer_make: SPARCstation
+
+-old15
+computer_manufacturer: IBM
+computer_model: 3081-D
+programming-language: Fortran
+software_name: XMP
+computer_manufacturer: CDC
+computer_make: Cyber
+computer_model: 174
+
+-old16
+multicomputer_manufacturer: CRAY
+multicomputer_model: XMP-4
+computer_manufacturer: Alliant
+computer_model: FX/8
+num-processors: 4
+num-processors: 8
+
+-old17
+num-processors: single
+cpu_manufacturer: IBM
+cpu_make: SP Power3
+cpu_frequency_value: 400
+cpu_frequency_unit: MHz
+
+-old18
+cpu_make: VAX
+cpu_model: 8600
+
+-old19
+num-processors: one
+computer_manufacturer: Convex
+computer_model: 220
+
+-old20
+computer_manufacturer: Dec
+computer_make: alpha
+cpu_frequency_value: 400
+cpu_frequency_unit: MHz
+computer_manufacturer: IBM
+computer_make: RS/6000 power2
+memory_type: RAM
+memory_size_value: 5
+memory_size_unit: MB
+

@@ -1,0 +1,3 @@
+# put common synonyms for ontology terms / tags in this file
+cpu: processor
+manufacturer: company

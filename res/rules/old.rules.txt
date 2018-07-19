@@ -1,0 +1,360 @@
+ner = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NamedEntityTagAnnotation" }
+tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
+
+
+
+$MODEL_NUMBER = "/\w{1,3}\d+/ /-/? /\w/? | /.{0,3}/ /-/? /\d+/ | /\w/"
+$DECIMAL = "/\d+(\.\d+)?/"
+$NUM= "/(?i)one|single|two|three|four|five|six|seven|eight|nine|ten/"
+
+
+# Multicomputer stuff
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)Cray/ ),
+  action: (Annotate($0, ner, "multicomputer_manufacturer")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /\d\d\d/ /node/ ([{pos:NNP}]) ),
+  action: (Annotate($1, ner, "multicomputer_manufacturer")), 
+  stage: 9 
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ([{pos:NN} | {pos:NNP}])+ /(?i)computer/ /(?i)cluster/ ),
+  action: (Annotate($0, ner, "multicomputer_make")), 
+  stage: 9 
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:multicomputer_manufacturer}] ([{pos:NN} & !{word:/($MODEL_NUMBER)/}]) ),
+  action: (Annotate($1, ner, "multicomputer_make")), 
+  stage: 10
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:multicomputer_manufacturer}] /-/? ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "multicomputer_model")), 
+  stage: 11 
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:multicomputer_manufacturer} | {ner:multicomputer_make} | {ner:multicomputer_model}]+ /system/ /in/ /the/ (([{pos:NN} | {pos:NNP} | {pos:POS}])+) /and|\./ ),
+  action: (Annotate($1, ner, "multicomputer_location")), 
+  stage: 12 
+}
+
+
+# Number of nodes / processors
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL) /node(?s)/ ),
+  action: (Annotate($1, ner, "numnodes")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL | $NUM) [{ner:cpu_frequency_value} | {word:/processor(?s)/}] ),
+  action: (Annotate($1, ner, "numprocessors")), 
+  stage: 7
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($NUM) [{ner:cpu_manufacturer}] ),
+  action: (Annotate($1, ner, "numprocessors")), 
+  stage: 5
+}
+
+
+# Computer stuff
+{
+  ruleType: "tokens",
+  pattern: ( /Silicon/ /Graphics/ | /SGI/ | /Compaq/ | /Alliant/ | /Convex/ | /IBM/ | /(?i)DEC/ | /(?i)Sun/ | /CDC/),
+  action: (Annotate($0, ner, "computer_manufacturer")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /run/ /on/ /a/ [] [{ner:cpu_frequency_unit}] ([{pos:NN} | {pos:NNP}]) ),
+  action: (Annotate($1, ner, "computer_make")), 
+  stage: 3
+}
+
+
+# bad on silicon graphics
+{
+  ruleType: "tokens",
+  pattern: ( ([ner:computer_manufacturer]+) (?$this ([{pos:NNP} | {pos:NN} & !{word:$MODEL_NUMBER}] )+ ) ),
+  action: (Annotate($this, ner, "computer_make")), 
+  stage: 3 
+}
+
+
+# kludge since I can't get the above rule to work (old14.key)
+{
+  ruleType: "tokens",
+  pattern: ( /Silicon/ /Graphics/ ),
+  action: (Annotate($0, ner, "computer_manufacturer")), 
+  stage: 3 
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_model} | {ner:computer_manufacturer}] /-?/ ( ([{pos:NNP} | {pos:NN}])+) /workstation/),
+  action: (Annotate($1, ner, "computer_make")), 
+  stage: 5
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /FX\/8/ ),
+  action: (Annotate($0, ner, "computer_model")), 
+  stage: 3 
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:computer_manufacturer}]+ [] [{ner:cpu_frequency_unit}] ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "computer_model")), 
+  stage: 4
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:computer_make} | {ner:computer_manufacturer}] ($MODEL_NUMBER)),
+  action: (Annotate($1, ner, "computer_model")), 
+  stage: 6
+}
+
+
+# CPU stuff
+{
+  ruleType: "tokens",
+  pattern: ( /Zilog/ | /National/ /Semiconductor/),
+  action: (Annotate($0, ner, "cpu_manufacturer")), 
+  stage: 1
+}
+
+
+# Kludge
+{
+  ruleType: "tokens",
+  pattern: ( [{word:/single/}] (/IBM/)),
+  action: (Annotate($1, ner, "cpu_manufacturer")), 
+  stage: 2
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /VAX/ | /Athlon/),
+  action: (Annotate($0, ner, "cpu_make")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( (([{pos:NN} | {pos:NNP}])+) /(?i)cpu(s?)/ | /(?i)processor((\.|\w)*)/),
+  action: (Annotate($1, ner, "cpu_make")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($MODEL_NUMBER) /-LRB-/? [{ner:cpu_manufacturer}]),
+  action: (Annotate($1, ner, "cpu_make")), 
+  stage: 2
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_frequency_unit}] ([{pos:NN} | {pos:NNP}]) /processor(?s)/),
+  action: (Annotate($1, ner, "cpu_make")), 
+  stage: 3
+}
+
+
+# kludge
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)MIPS/ ),
+  action: (Annotate($0, ner, "cpu_make")), 
+  stage: 5
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($MODEL_NUMBER)  /processor/),
+  action: (Annotate($1, ner, "cpu_model")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:computer_manufacturer}]+ [{ner:computer_make}] ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "cpu_model")), 
+  stage: 4
+}
+
+
+# kludge
+{
+  ruleType: "tokens",
+  pattern: ( /Silicon/ /Graphics/ ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "cpu_model")), 
+  stage: 3
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_make}]+ /-?/ (?$this $MODEL_NUMBER) | (?$this $MODEL_NUMBER)  /processor(s?)/),
+  action: (Annotate($this, ner, "cpu_model")), 
+  stage: 3
+}
+
+
+# Frequency
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)MHz/ | /(?i)GHz/ ),
+  action: (Annotate($0, ner, "cpu_frequency_unit")),
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL) /-/? [{ner:cpu_frequency_unit}] ),
+  action: (Annotate($1, ner, "cpu_frequency_value")),
+  stage: 6 
+}
+
+
+# Memory
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)RAM/ ),
+  action: (Annotate($0, ner, "memory_type")),
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)MB/ | /(?i)MByte/ ),
+  action: (Annotate($0, ner, "memory_size_unit")),
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL) [{ner:memory_size_unit}] ),
+  action: (Annotate($1, ner, "memory_size_value")), 
+  stage: 2
+}
+
+
+# OS kernel, distribution and versions
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)Linux/ ),
+  action: (Annotate($0, ner, "operatingsystem_kernel_name")), 
+  stage: 2
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)Irix/ | /(?i)SunOS/ | /(?i)AIX/),
+  action: (Annotate($0, ner, "operatingsystem_distribution_name")), 
+  stage: 2
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:operatingsystem_distribution_name}] /(?i)version/* ($DECIMAL) ),
+  action: (Annotate($1, ner, "operatingsystem_distribution_version")), 
+  stage: 3
+}
+
+
+# Software and versions
+{
+  ruleType: "tokens",
+  pattern: ( ([{pos:NNP} | {pos:NN}]) /(?i)version/ ($DECIMAL) ),
+  action: (Annotate($1, ner, "software_name"), Annotate($2, ner, "software_version")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)rsh/ | /(?i)gnu/ /(?i)diff/ | /qhull/),
+  action: (Annotate($0, ner, "software_name")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( /library/ ([{pos:NN} | {pos:NNP}]) /-LRB-/),
+  action: (Annotate($1, ner, "software_name")), 
+  stage: 1
+}
+
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:software_name}] ($DECIMAL) ),
+  action: (Annotate($1, ner, "software_version")), 
+  stage: 2
+}
+
+
+# Programming languages
+{
+  ruleType: "tokens",
+  pattern: ( ([{pos:NNP}]) /compiler/ ),
+  action: (Annotate($1, ner, "programminglanguage")), 
+  stage: 1
+}
+
+
+# Fixes
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)computer/ | /(?i)workstation/ | /(?i)server/ | /(?i)processor((\.|\w)*)/ | /(?i)user/ | /(?i)system/ | /(?)and/),
+  action: (Annotate($0, ner, "O")), 
+  stage: 8
+}
+

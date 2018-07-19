@@ -1,0 +1,449 @@
+ner = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NamedEntityTagAnnotation" }
+tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
+
+
+# variables
+
+$DECIMAL = "/\d+(\.\d+)?/"
+$MODEL_NUMBER = "/\w{0,2}-?\d+-?\w{0,2}/ | /\w{0,2}/ /\d+/"
+$POSSIBLE_MODEL = "/\d+/"
+$BITS_NUMBER = "/\d+/ /-/? bits | /\d+/ /-/? bit | /\d+bits/"
+
+$WINDOWS_VERSION = "/\d+|\w+/"
+$TM = "/-LRB-/ /TM/ /-RRB-/"
+$NUM= "/(?i)one|single|two|three|four|five|six|seven|eight|nine|ten/"
+$CORES = "/dual|quad/"
+
+
+# hardcoded things
+{
+  ruleType: "tokens",
+  pattern: ( /HP|Lenovo|Dell/ ),
+  action: (Annotate($0, ner, "computer_manufacturer")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /Intel/ ),
+  action: (Annotate($0, ner, "cpu_manufacturer")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /Xeon/ | /Pentium/ /[\w\d]{0,2}/ | /Core[\w\d]+/ | /Core/ $TM? /i?\d/ /Duo/? | /i\d/ ),
+  action: (Annotate($0, ner, "cpu_make")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /Radeon/ | /Tesla/ ),
+  action: (Annotate($0, ner, "gpu_make")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)MHz|GHz/ ),
+  action: (Annotate($0, ner, "cpu_frequency_unit")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)DDR\w*/ ([])* /(?i)RAM/ | /(?i)RAM/ ),
+  action: (Annotate($0, ner, "memory_type")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/(?i)KB|(?i)MB|(?i)GB|(?i)G|(?i)gigabytes/) [!{word:/-/}] ),
+  action: (Annotate($1, ner, "memory_size_unit")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(i?)Linux/ ),
+  action: (Annotate($0, ner, "operatingsystem_kernel_name")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /Mac\w+/ OS /X/? | /Mac/ /OS/ | /Windows/ | /(?i)CentOS/),
+  action: (Annotate($0, ner, "operatingsystem_distribution_name")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)Matlab/ [{pos:POS}]? | /(?i)CPLEX/ ),
+  action: (Annotate($0, ner, "software_name")), 
+  stage: 1
+}
+
+
+# tag OS distributions based on kernels
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:operatingsystem_kernel_name}] ( [ ({pos:NN} | {pos:NNP}) & !{word:/(?i)version/} ] ) ),
+  action: (Annotate($1, ner, "operatingsystem_distribution_name")),
+  stage: 2
+}
+
+$SUPER_DEFINITE = "/\d*(\.\d+){2,5}/"
+$DECIMAL_PART = "/\d*(\.\d+)+/+"
+$DASH_PART = "/-/ ([])"
+
+$DEFINITE_VERSION = "/v\d+/ ($DECIMAL_PART | $DASH_PART)* | /\d+($DECIMAL_PART){2,5}/ ($DECIMAL_PART | $DASH_PART)*"
+$VERSION_NUMBER = "(($DECIMAL_PART) ($DECIMAL_PART | $DASH_PART)* | /\w{0,2}\d+\w{0,2}/)" 
+
+$VERSION = "($DEFINITE_VERSION | $VERSION_NUMBER)+"
+
+# tag OS versions based on kernels and distributions 
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:operatingsystem_kernel_name}] /[V|v]ersion/? (($VERSION)+) ),
+  action: (Annotate($1, ner, "operatingsystem_kernel_version")),
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:operatingsystem_distribution_name}] /[V|v]ersion/? (($VERSION)+) ),
+  action: (Annotate($1, ner, "operatingsystem_distribution_version")),
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( $BITS_NUMBER? [{ner:operatingsystem_distribution_name}] ),
+  action: (Annotate($0, ner, "operatingsystem_distribution_name")),
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:operatingsystem_distribution_version}] ($BITS_NUMBER)),
+  action: (Annotate($1, ner, "operatingsystem_distribution_version")),
+  stage: 5
+}
+
+{
+ ruleType: "tokens",
+ pattern: ( [{ner:gpu_model}] ([]){0,3} /kernel/ ( ($VERSION_NUMBER)+ ) ),
+ action: (Annotate($2, ner, "gpu_kernel_version")),
+ stage: 5 
+}
+
+
+# remaining versions are software
+{
+  ruleType: "tokens",
+  pattern: ( ($DEFINITE_VERSION | $SUPER_DEFINITE)),
+  action: (Annotate($1, ner, "software_version")),
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /[V|v]ersion/ ($VERSION) ),
+  action: (Annotate($1, ner, "software_version")),
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:software_name}] /-LRB-/? /[V|v]ersion/? ($VERSION)),
+  action: (Annotate($1, ner, "software_version")),
+  stage: 3
+}
+
+{
+ ruleType: "tokens",
+ pattern: ( Windows ( $WINDOWS_VERSION ) ),
+ action: (Annotate($1, ner, "operatingsystem_distribution_name")),
+ stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:software_name}]|[{ner:software_version}] (/-LRB-/ /\w?\d+\w?/ /-RRB-/) ),
+  action: (Annotate($1, ner, "software_version")),
+  stage: 5
+}
+
+
+# independent patterns
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d{1,3}/|$NUM) /processor(s)?/),
+  action: (Annotate($1, ner, "num-processors")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d{1,3}/|$NUM) /node(s)?/),
+  action: (Annotate($1, ner, "num-nodes")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d{1,3}/|$NUM) /\w*/ /node(s)?/),
+  action: (Annotate($1, ner, "num-nodes")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ([{pos:NN}]|[{pos:NNP}]|[{pos:JJ}])* /(?i)computing/ /(?i)cluster/ ),
+  action: (Annotate($0, ner, "multicomputer_make")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/AMD/) [!{word:/Radeon/}] ),
+  action: (Annotate($1, ner, "cpu_manufacturer")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /implemented|written/ in ( [{pos:NNP}]|[{pos:NN}] ) ),
+  action: (Annotate($1, ner, "programming-language")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/(?i)C/) compiler),
+  action: (Annotate($1, ner, "programming-language")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /coded/ /in/ ( [{pos:NNP}]|[{pos:NN}] ) ),
+  action: (Annotate($1, ner, "software_name")), 
+  stage: 1
+}
+
+
+# dependent patterns without numbers involved 
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:multicomputer_make}] /-LRB-?/ ([{pos:NN}]|[{pos:NNP}]* /,/ [{pos:NN}]|[{pos:NNP}]) /-RRB-?/ ),
+  action: (Annotate($1, ner, "multicomputer_location")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:computer_manufacturer}] ( [{pos:NNP}]|[{pos:NN}]) ),
+  action: (Annotate($1, ner, "computer_make")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_manufacturer}] ([{pos:NNP}]|[{pos:NN}]) ),
+  action: (Annotate($1, ner, "cpu_make")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ([{pos:NNP}]|[{pos:NN}]) [{ner:gpu_make}] ),
+  action: (Annotate($1, ner, "gpu_manufacturer")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d+/|$CORES) /-/? /[C|c]ore(s)?/), 
+  action: (Annotate($1, ner, "cpu_numcores")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /\w+[C|c]ore(s)?/),
+  action: (Annotate($0, ner, "cpu_numcores")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d+/) [{ner:cpu_manufacturer}]),
+  action: (Annotate($1, ner, "num-processors")),
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)the|'s/ ( ([!{word:/the/}]){1,6}? /(?i)toolbox(es)?|library/ )),
+  action: (Annotate($1, ner, "software_name")), 
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ( [!{ner:operatingsystem_distribution_name} & !{ner:operatiingsystem_kernel_name} & !{word:/(?i)-lrb-/}] ) [{ner:software_version}]),
+  action: (Annotate($1, ner, "software_name")),
+  stage: 5
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ( ([{pos:NN}]|[{pos:NNP}]|[{pos:JJ}])+ ) /program|[S|s]oftware/ ),
+  action: (Annotate($1, ner, "software_name")),
+  stage: 1
+}
+
+
+# dependent patterns that involve numbers
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL) /(?i)MHz|GHz/ ),
+  action: (Annotate($1, ner, "cpu_frequency_value")),
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ($DECIMAL) [{ner:memory_size_unit}] ),
+  action: (Annotate($1, ner, "memory_size_value")), 
+  stage: 3
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:memory_size_unit}] /of?/ (([{pos:NNP}]|[{pos:NN}])*) ),
+  action: (Annotate($1, ner, "memory_type")), 
+  stage: 3
+}
+
+
+
+# second-level dependent patterns
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:computer_make}] ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "computer_model")), 
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ($MODEL_NUMBER) /laptop|computer/ ),
+  action: (Annotate($1, ner, "computer_model")), 
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( ($MODEL_NUMBER) /@|at|-LRB-/? [{ner:cpu_frequency_value}]  ),
+  action: (Annotate($1, ner, "cpu_model")),
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_make}] /-/ ($POSSIBLE_MODEL) ),
+  action: (Annotate($1, ner, "cpu_model")), 
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:cpu_make}] /-/? ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "cpu_model")), 
+  stage: 4
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:gpu_make}] ($MODEL_NUMBER) ),
+  action: (Annotate($1, ner, "gpu_model")), 
+  stage: 4
+}
+
+
+# overwrite any issues
+{
+  ruleType: "tokens",
+  pattern: ( /Xeon/ | /Pentium/ /[\w\d]{0,2}/ | /Core[\w\d]+/ | /Core/ $TM? /-/? /i?\d/ /Duo/? | /i\d/ ),
+  action: (Annotate($0, ner, "cpu_make")),
+  stage: 5
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)memory/ ),
+  action: (Annotate($0, ner, "O")),
+  stage: 5
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)version/ ),
+  action: (Annotate($0, ner, "O")),
+  stage: 5
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)Random/ /(?i)Access/ /(?i)Memory/ ),
+  action: (Annotate($0, ner, "memory_type")),
+  stage: 6
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /(?i)the|'s/ ( ([!{word:/the/}]){1,6}? /(?i)toolbox(es)?|library/ )),
+  action: (Annotate($1, ner, "software_name")), 
+  stage: 5
+}
+
+
+# kind of kludges
+
+{
+  ruleType: "tokens",
+  pattern: ( (/\d{1,3}/|$NUM) /\w*/ /-/ /(?i)core/),
+  action: (Annotate($1, ner, "num-processors")),
+  stage: 1
+}
+
+
+# complete kludges
+
+{
+  ruleType: "tokens",
+  pattern: ( ($NUM) 2.93 GHz),
+  action: (Annotate($1, ner, "num-processors")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( /G/ /-/ /MSA/ ),
+  action: (Annotate($0, ner, "software_name")),
+  stage: 1
+}
+
+{
+  ruleType: "tokens",
+  pattern: ( "Inter" ),
+  action: (Annotate($0, ner, "cpu_manufacturer")),
+  stage: 1
+}
+

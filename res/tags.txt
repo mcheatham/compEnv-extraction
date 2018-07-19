@@ -1,0 +1,32 @@
+# List the tags you want to try to infer from Wikipedia in this file
+# Lines beginning with # are ignored
+multicomputer_model
+multicomputer_make
+computer_model
+gpu_model
+cpu_make
+gpu_make
+cpu_manufacturer
+multicomputer_manufacturer
+computer_manufacturer
+operating-system_distribution_name
+gpu_manufacturer
+#num-nodes
+interconnection-network
+multicomputer_location
+#memory_size_value
+programming-language
+cpu_model
+#operating-system_distribution_version
+#gpu_num-cores
+software_name
+#software_version
+computer_make
+#cpu_num-cores
+#operating-system_kernel_version
+cpu_frequency_unit
+#num-processors
+memory_type
+operating-system_kernel_name
+#cpu_frequency_value
+memory_size_unit

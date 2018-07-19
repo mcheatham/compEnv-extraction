@@ -1,0 +1,591 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://dase.cs.wright.edu/ontologies/ComputationalEnvironment"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://dase.cs.wright.edu/ontologies/ComputationalEnvironment">
+    <Prefix name="" IRI="http://dase.cs.wright.edu/ontologies/ComputationalEnvironment#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The tool Wireshark was run on a particular computer in order to analyze network traffic.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The pattern is intended to support comparison and reproducibility of computational analyses.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The Computational Environment ontology design pattern models the environment in which a computational analysis was conducted down to the hardware level.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ComputationalEnvironment</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Our goal was to arrive at an ontology design pattern that is capable of answering the following competency questions:
+
+– What environment do I need to put in place in order to replicate the work in Paper X?
+
+– There has been an error found in Script Y. Which analyses need to be re-run?
+
+– Based on recent research in Field Z what tools and resources should new students work to become familiar with?
+
+– Are the results from Study A and Study B comparable from a computational
+environment perspective?</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Amount"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CPU"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cache"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Component"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Computer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DDR"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DDRII"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DDRIII"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Disk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Distribution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GPU"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hardware"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kernel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Memory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Multicomputer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OperatingSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Processor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RAM"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SDRAM"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Software"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAccessTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasComponent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDistribution"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFrequency"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKernel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasInterconnectionNetwork"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLocation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMake"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasManufacturer"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasModel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNumberOfCores"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNumberOfNodes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVersion"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Amount"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasUnit"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Amount"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasValue"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Amount"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#hasUnit"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CPU"/>
+        <Class IRI="#Processor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cache"/>
+        <Class IRI="#Memory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Computer"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasComponent"/>
+            <Class IRI="#Component"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DDR"/>
+        <Class IRI="#SDRAM"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DDRII"/>
+        <Class IRI="#SDRAM"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DDRIII"/>
+        <Class IRI="#SDRAM"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disk"/>
+        <Class IRI="#Hardware"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disk"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Amount"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disk"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Amount"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Distribution"/>
+        <Class IRI="#Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GPU"/>
+        <Class IRI="#Processor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hardware"/>
+        <Class IRI="#Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kernel"/>
+        <Class IRI="#Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Memory"/>
+        <Class IRI="#Hardware"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Memory"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Amount"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Memory"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Amount"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Multicomputer"/>
+        <Class IRI="#Computer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OperatingSystem"/>
+        <Class IRI="#Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processor"/>
+        <Class IRI="#Hardware"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasFrequency"/>
+            <Class IRI="#Amount"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasNumberOfCores"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processor"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasNumberOfCores"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RAM"/>
+        <Class IRI="#Memory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SDRAM"/>
+        <Class IRI="#RAM"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <Class IRI="#Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasVersion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#hasVersion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasVersion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Disk"/>
+            <Class IRI="#Memory"/>
+        </ObjectUnionOf>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Amount"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasComponent"/>
+            <Class IRI="#Component"/>
+        </ObjectSomeValuesFrom>
+        <Class IRI="#Computer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasNumberOfCores"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataSomeValuesFrom>
+        <Class IRI="#Processor"/>
+    </SubClassOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAccessTo"/>
+        <Class IRI="#Processor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasComponent"/>
+        <Class IRI="#Computer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDistribution"/>
+        <Class IRI="#OperatingSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFrequency"/>
+        <Class IRI="#Processor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKernel"/>
+        <Class IRI="#OperatingSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSize"/>
+        <ObjectUnionOf>
+            <Class IRI="#Disk"/>
+            <Class IRI="#Memory"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAccessTo"/>
+        <Class IRI="#Memory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasComponent"/>
+        <Class IRI="#Component"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDistribution"/>
+        <Class IRI="#Distribution"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFrequency"/>
+        <Class IRI="#Amount"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKernel"/>
+        <Class IRI="#Kernel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSize"/>
+        <Class IRI="#Amount"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasInterconnectionNetwork"/>
+        <Class IRI="#Multicomputer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLevel"/>
+        <Class IRI="#Cache"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLocation"/>
+        <Class IRI="#Multicomputer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasMake"/>
+        <ObjectUnionOf>
+            <Class IRI="#Computer"/>
+            <Class IRI="#Hardware"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasManufacturer"/>
+        <ObjectUnionOf>
+            <Class IRI="#Computer"/>
+            <Class IRI="#Hardware"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasModel"/>
+        <ObjectUnionOf>
+            <Class IRI="#Computer"/>
+            <Class IRI="#Hardware"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasName"/>
+        <ObjectUnionOf>
+            <Class IRI="#Distribution"/>
+            <Class IRI="#Kernel"/>
+            <Class IRI="#Software"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasNumberOfCores"/>
+        <Class IRI="#Processor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasNumberOfNodes"/>
+        <Class IRI="#Multicomputer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasUnit"/>
+        <Class IRI="#Amount"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasValue"/>
+        <Class IRI="#Amount"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasVersion"/>
+        <ObjectUnionOf>
+            <Class IRI="#Distribution"/>
+            <Class IRI="#Kernel"/>
+            <Class IRI="#Software"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasInterconnectionNetwork"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLevel"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLocation"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMake"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasManufacturer"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasModel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasNumberOfCores"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasNumberOfNodes"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasUnit"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasValue"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasVersion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Amount</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Indicates the quantity of something</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CPU</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A component within a computer that carries out the instructions of a program</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Component</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any part (physical or virtual) of something else</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Computer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The environment in which a computational analysis was conducted</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Disk</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A device capable of persistently storing data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Hardware</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A physical component</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Memory</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A device capable of transient data storage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#OperatingSystem</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">System software that manages a computer&apos;s components</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Software</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Instructions executed by a computer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasFrequency</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The number of cycles per second that a processor executes</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
